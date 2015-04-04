@@ -1,6 +1,6 @@
 <h1>My friends</h1>
-<p>View your <b><%= current_user.follows.count %></b> friends. <br>
    <% if @followings.present? && @followings.size > 0 %>
+   <p>View your <b><%= current_user.follows.count %></b> friends. <br>
    <div id="pins" class="transitions-enabled">
             <% @followings.each do |user| %>
               <div class="box panel panel-default" id = "user_<%= user.id %>">
