@@ -8,14 +8,14 @@ class ModelMailer < ActionMailer::Base
   #
   def new_pin_notification(pin)
     @pin = pin
-    mail to: pin.user.email, subject: "#{@pin.user.name}, jouw recept #{@pin.description} is toegevoegd.", bcc: "oliviervanhees@gmail.com"
+    mail to: pin.user.email, subject: "#{@pin.user.name}, jouw restaurant #{@pin.description} is toegevoegd.", bcc: "oliviervanhees@gmail.com"
   end
 
   def new_like_notification(pin)
     @pin = pin
     @user = pin.user
   
-    mail to: pin.user.email, subject: "#{@pin.user.name}, jouw recept #{@pin.description} wordt lekker gevonden door anderen.", bcc: "oliviervanhees@gmail.com"
+    mail to: pin.user.email, subject: "#{@pin.user.name}, jouw restaurant #{@pin.description} wordt lekker gevonden door anderen.", bcc: "oliviervanhees@gmail.com"
   end
 
 end

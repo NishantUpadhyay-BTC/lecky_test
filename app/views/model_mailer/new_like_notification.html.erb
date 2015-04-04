@@ -1,6 +1,6 @@
 <p>Hi <%= @pin.user.name %>,</p>
 
-<p>Jouw recept <b><%= @pin.description %></b> wordt nu lekker gevonden door:</p>
+<p>Your restaurant <b><%= @pin.description %></b> is now liked by:</p>
 
 <% @pin.votes_for.voters.each do |p| %>
 
@@ -8,8 +8,6 @@
 
 <% end %>
 
-<p>Bekijk <%= link_to "hier", pin_url(@pin) %> jouw recept op Altijd Heerlijk.</p>
+<p>View or edit your restaurant <%= link_to "here", pin_url(@pin) %>.</p>
 
-<p>Smakelijke groet,</p>
-
-<p>Altijd Heerlijk</p>
+<p>Dinder</p>
