@@ -1,33 +1,31 @@
-<p><%= link_to 'Terug', :back %></p>
+<p><%= link_to 'Back', :back %></p>
 <h1><%=@user.name %></h1> 
-
-<%= link_to "Stop volgen", user_unfollow_path(@user), :method => :delete, :class => "btn btn-sm btn-danger", :remote => true %>   
-
-
-  <br></br><p>Bekijk hier de recepten van <b><%=@user.name %></b>.
+<%= link_to "Unfollow", user_unfollow_path(@user), :method => :delete, :class => "btn btn-sm btn-danger", :remote => true %>   
+  <br></br><p>View the favorite list of restaurants of <b><%=@user.name %></b>.
     <div id="pins" class="transitions-enabled">
-              <% @user.pins.each do |pin| %>
-                <div class="box panel panel-default">
-                    <div class="panel-body">
-                      <div class="actions">
-                      <b>Recept:</b>
-                      <p><%= link_to pin.description, pin %></p>
-                      <b>Toegevoegd door:</b>
-                      <p><%= link_to image_tag(@user.image_file_name), pin.user %></p>
-                      </div>   
-                    </div>
-                </div>
-              <% end %>
               <% @user.find_liked_items.each do |pin| %>
                 <div class="box panel panel-default">
                     <div class="panel-body">
-                      <div class="actions">
-                      <b>Recept:</b>
-                      <p><%= link_to pin.description, pin %></p>
-                      <b>Toegevoegd door:</b>
-                      <p><%= link_to image_tag(@user.image_file_name), pin.user %></p>
-                      </div>   
-                    </div>
+                           <p><b>Restaurant:</b> <%= link_to pin.description, pin_path(pin) %></p>
+                            <br><%= link_to image_tag(pin.image.url), pin %></br>
+                              <br></br>
+                                <div class="actions">
+                                      <p><%= link_to pin_path(pin) , class: "btn btn-info btn-sm" do %>
+                                      <span class="glyphicon glyphicon-fullscreen"></span>
+                                      View 
+                                      <% end %>
+                                      <% if current_user.liked? pin %>
+                                        <%= link_to unlike_pin_path(pin), method: :put, class: "btn btn-danger btn-sm" do %>
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                        Unsave
+                                        <% end %>
+                                      <% else %>
+                                        <%= link_to like_pin_path(pin), method: :put, class: "btn btn-success btn-sm" do %>
+                                        <span class="glyphicon glyphicon-heart"></span>
+                                        Save 
+                                        <% end %>
+                                      <% end %></p>
+                                </div>
                 </div>
             <% end %>
     </div>

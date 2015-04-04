@@ -1,6 +1,6 @@
-<h1>Mijn volgers</h1>
-<p>Bekijk hier de <b><%= current_user.followers.count %></b> chefs die jou volgen op Altijd Heerlijk. <br>
+<h1>My followers</h1>
    <% if @followers.present? && @followers.size > 0 %>
+   <p>View the <b><%= current_user.followers.count %></b> users that are following you. <br>
    <div id="pins" class="transitions-enabled">
             <% @followers.each do |user| %>
               <div class="box panel panel-default" id = "user_<%= user.id %>">
@@ -8,7 +8,11 @@
                     </div> 
             <% end %>
         <% else %>
-          <p><b>Er is nog niemand die jouw volgt, nodig nu vrienden uit om jou te volgen.</p></b>
+          <p>You don't have any followers, invite users to follow you.</p>
+          <%= link_to users_path, class: "btn btn-danger btn-block" do %>
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  Invite users to follow you
+                  <% end %></p>
         <% end %> 
 
 

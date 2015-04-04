@@ -1,23 +1,21 @@
-<%= link_to 'Terug', :back %>
+<%= link_to 'Back', :back %>
 <h1><%= @pin.description %></h1>
       <% if current_user.liked? @pin %>
         <%= link_to unlike_pin_path(@pin), method: :put, class: "btn btn-danger btn-sm" do %>
         <span class="glyphicon glyphicon-remove"></span>
-        Verwijder recept
+        Unsave
         <% end %>
       <% else %>
         <%= link_to like_pin_path(@pin), method: :put, class: "btn btn-success btn-sm" do %>
         <span class="glyphicon glyphicon-heart"></span>
-        Bewaar recept
+        Save
         <% end %>
       <% end %>
       <br></br>
   <div class="col-md-offset-0 col-md-14">
     <div class="panel panel-default">
       <div class="panel-heading center">
-         <p><b>Toegevoegd door: </b></p>
-          <p><%= link_to image_tag(@pin.user.image_file_name), @pin.user %></p>  
-            <p><b>Favoriet recept van: </b></p>
+         <p><b>Restaurant liked by: </b></p>
                 <% @pin.votes_for.voters.each do |p| %> 
                   <p><%= link_to image_tag(p.image_file_name), @user %></p>
                 <% end %>  
@@ -26,20 +24,21 @@
   </div>
     <div class="panel panel-default">
       <div class="panel-body">
-          <p><strong>Ingrediënten:</strong>
+          <p><strong>Street:</strong>
             <%= @pin.ingredients2 %></p>
-          <p><strong>Bereidingswijze:</strong>
+          <p><strong>Place:</strong>
             <%= @pin.preparation %></p>
-          <p><strong>Foto van recept:</strong></p>
+          <p><strong>Photo:</strong></p>
         	 <%= image_tag @pin.image.url(:medium) %><br>   
           <br></br>
-                 <div class="btn-group.pull-right">
+                  <% if @pin.user == current_user %>
+                     <div class="btn-group.pull-right">
                     <%= link_to edit_pin_path(@pin), class: "btn btn-warning btn-sm" do %>
                       <span class="glyphicon glyphicon-edit"></span>
-                      Wijzig recept
+                      Edit restaurant
                     <% end %>
                   </div>
-         
+         <% end %>
       </div>
     </div>    
   </div>

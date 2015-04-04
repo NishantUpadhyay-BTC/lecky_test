@@ -1,7 +1,11 @@
-<h1>Recepten van jouw vrienden</h1>
-<p>Bekijk hier de recepten die jouw <b><%= current_user.follows.count%></b> vrienden hebben toegevoegd.</p> 
+<h1>Your friends favorites</h1>
 <% if @pins.present? && @pins.to_a.size > 0 %>
+<p>View the favorite restaurants of your <b><%= current_user.follows.count%></b> friends.</p> 
 <%= render 'pins/show_pin_details' %>  
 <% else %>
-	<p> Je hebt nog geen suggesties, voeg eerst vrienden toe om persoonlijke suggesties te ontvangen. </p>
+	<p> You haven't added any friends yet or your friends haven't added any restaurants yet. Add some (more) friends to see their favorite restaurants. </p>
+	<%= link_to users_path, class: "btn btn-danger btn-block" do %>
+	<span class="glyphicon glyphicon-chevron-right"></span>
+	Add friends
+	<% end %></p>
 <% end %>

@@ -17,14 +17,14 @@ class PinsController < ApplicationController
 
   def like
     @pin.liked_by current_user
-    redirect_to :back, notice: 'Je hebt dit recept nu toegevoegd aan jouw bewaarde recepten.'
+    redirect_to :back, notice: 'You have this restaurant to your favorite list.'
     ModelMailer.new_like_notification(@pin).deliver
 
   end
 
   def unlike
     @pin.unliked_by current_user
-    redirect_to :back, notice: 'Dit recept is verwijderd uit jouw bewaarde recepten.'
+    redirect_to :back, notice: 'You have removed this restaurant from your favorite list.'
   end
 
   def show
@@ -42,7 +42,7 @@ class PinsController < ApplicationController
     if @pin.save
       ModelMailer.new_pin_notification(@pin).deliver
       
-      redirect_to @pin, notice: 'Jouw recept is toegevoegd aan Altijd heerlijk.'
+      redirect_to @pin, notice: 'You have added this restaurant to Dinder.'
     else
       render action: 'new'
     end
@@ -50,7 +50,7 @@ class PinsController < ApplicationController
 
   def update
     if @pin.update(pin_params)
-      redirect_to @pin, notice: 'Recept is gewijzigd.'
+      redirect_to @pin, notice: 'You have changed the restaurant.'
     else
       render action: 'edit'
     end
@@ -69,7 +69,7 @@ class PinsController < ApplicationController
 
     def correct_user
       @pin = current_user.pins.find_by(id: params[:id])
-      redirect_to pins_path, notice: "Het is alleen toegestaan om eigen recepten te wijzigen" if @pin.nil?
+      redirect_to pins_path, notice: "It is only allowed to change the restaurants you have added my yourself." if @pin.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
