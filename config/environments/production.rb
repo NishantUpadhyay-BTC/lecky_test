@@ -79,7 +79,7 @@ Altijdheerlijk::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
    # required for Heroku
-  config.action_mailer.default_url_options = { :host => 'https://omr-altijdheerlijk.herokuapp.com/' }
+  config.action_mailer.default_url_options = { :host => 'http://dinder-app.herokuapp.com/' }
 
   config.action_mailer.delivery_method = :smtp
   
@@ -87,9 +87,9 @@ Altijdheerlijk::Application.configure do
   :authentication => :plain,
   :address => "smtp.mailgun.org",
   :port => 587,
-  :domain => "email.altijdheerlijk.nl",
-  :user_name => "postmaster@email.altijdheerlijk.nl",
-  :password => "a6c1ed9ffa1492b88ea05486221fa220"
+  :domain => "https://api.mailgun.net/v3/sandboxb0b11e477cd44acd8745e1e908a6e83b.mailgun.org",
+  :user_name => "postmaster@sandboxb0b11e477cd44acd8745e1e908a6e83b.mailgun.org",
+  :password => "9dc2903ca4b3b4c9066195399601338f  "
   }
 
   # stores images on Amazon S3 for Heroku

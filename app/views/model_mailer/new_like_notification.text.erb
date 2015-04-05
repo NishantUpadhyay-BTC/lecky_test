@@ -4,7 +4,7 @@ Your restaurant <%= @pin.description %> is now liked by:
 
 <% @pin.votes_for.voters.each do |p| %>
 
-<%= p.name %>
+<%= p.description %>
 
 <% end %>
 
