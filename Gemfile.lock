@@ -169,6 +169,9 @@ GEM
     shareable (1.1.4)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    simple_form (3.1.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     slop (3.6.0)
     socialization (1.1.0)
       activerecord
@@ -356,6 +359,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   shareable
+  simple_form
   socialization
   sqlite3
   turbolinks

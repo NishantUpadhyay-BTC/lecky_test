@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408164914) do
+ActiveRecord::Schema.define(version: 20150408210340) do
 
   create_table "follows", force: true do |t|
     t.integer  "user_id"
@@ -59,6 +59,13 @@ ActiveRecord::Schema.define(version: 20150408164914) do
     t.string   "method"
     t.text     "preparation"
     t.text     "ingredients2"
+    t.text     "postal_code"
+    t.text     "telephone_number"
+    t.text     "website"
+    t.text     "emailadress"
+    t.text     "address"
+    t.text     "place"
+    t.text     "name"
   end
 
   add_index "pins", ["user_id"], name: "index_pins_on_user_id"

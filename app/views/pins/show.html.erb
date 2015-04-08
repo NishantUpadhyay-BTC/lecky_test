@@ -1,14 +1,17 @@
-<%= link_to 'Back', :back %>
+<%= link_to :back, class: "btn btn-default" do %>
+  <span class="glyphicon glyphicon-chevron-left"></span>
+  Back
+  <% end %></p>
 <h1><%= @pin.description %></h1>
       <% if current_user.liked? @pin %>
         <%= link_to unlike_pin_path(@pin), method: :put, class: "btn btn-danger btn-sm" do %>
         <span class="glyphicon glyphicon-remove"></span>
-        Unsave
+        Unsave restaurant
         <% end %>
       <% else %>
         <%= link_to like_pin_path(@pin), method: :put, class: "btn btn-success btn-sm" do %>
         <span class="glyphicon glyphicon-heart"></span>
-        Save
+        Save restaurant
         <% end %>
       <% end %>
       <br></br>

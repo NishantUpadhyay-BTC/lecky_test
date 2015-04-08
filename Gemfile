@@ -42,6 +42,7 @@ gem 'mailchimp', '~> 0.0.9'
 gem 'koala', '~> 1.11.1'
 gem 'font-awesome-rails'
 gem 'bootstrap-social-rails'
+gem 'simple_form'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
