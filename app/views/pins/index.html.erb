@@ -1,4 +1,8 @@
 <h1>Search for restaurants</h1>
 <p>Search for your favorite restaurant in our database of <b><%= @pins.count %> restaurants</b>. 
-<u>Hint:Save your favorite ones to your favorite list.</u></p> 
+<u>Hint:When your favorite restaurant is not in the list? Add the restaurant by yourself.</u></p> 
+<%= link_to new_pin_path, class: "btn btn-default btn-block" do %>
+<span class="glyphicon glyphicon-chevron-right"></span>
+Add restaurant
+<% end %></p>
 <%= render 'pins/show_pin_details' %>  

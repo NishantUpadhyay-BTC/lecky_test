@@ -17,7 +17,7 @@ class PinsController < ApplicationController
 
   def like
     @pin.liked_by current_user
-    redirect_to :back, notice: 'You have this restaurant to your favorite list.'
+    redirect_to :back, notice: 'You have added this restaurant to your favorite list.'
     ModelMailer.new_like_notification(@pin).deliver
   end
 
@@ -40,7 +40,6 @@ class PinsController < ApplicationController
     @pin = current_user.pins.build(pin_params)
     if @pin.save
       ModelMailer.new_pin_notification(@pin).deliver
-      
       redirect_to @pin, notice: 'You have added this restaurant to Dinder.'
     else
       render action: 'new'

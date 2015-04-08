@@ -1,4 +1,4 @@
-<h1>Your friends favorites</h1>
+<h1>My friends favorites</h1>
 <% if @pins.present? && @pins.to_a.size > 0 %>
 <p>View the favorite restaurants of your <b><%= current_user.follows.count%></b> friends.</p> 
 <%= render 'pins/show_pin_details' %>  

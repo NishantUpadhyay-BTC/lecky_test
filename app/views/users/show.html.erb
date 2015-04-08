@@ -1,6 +1,6 @@
 <p><%= link_to 'Back', :back %></p>
 <h1><%=@user.name %></h1> 
-<%= link_to "Unfollow", user_unfollow_path(@user), :method => :delete, :class => "btn btn-sm btn-danger", :remote => true %>   
+<%= link_to "Remove friend", user_unfollow_path(@user), :method => :delete, :class => "btn btn-sm btn-danger", :remote => true %>   
   <br></br><p>View the favorite list of restaurants of <b><%=@user.name %></b>.
     <div id="pins" class="transitions-enabled">
               <% @user.find_liked_items.each do |pin| %>

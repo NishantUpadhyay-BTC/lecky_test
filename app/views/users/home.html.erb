@@ -1,21 +1,18 @@
-<h1>Welcome <b><%=current_user.name %></b> </h1>
+<h1>Welcome</h1>
+<p><b><%=current_user.name %></b></p>
 <p><%= link_to image_tag(current_user.image_file_name), @user %></p>
     <div id="pins" class="transitions-enabled">
-        <%= link_to my_friends_pins_path, class: "btn btn-success btn-block " do %>
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        Favorite restaurants of my <b><%= current_user.follows.count %></b> friends
-        <% end %></p>
         <%= link_to my_favorites_path, class: "btn btn-success btn-block" do %>
         <span class="glyphicon glyphicon-chevron-right"></span>
-        My favorite list of <b><%= current_user.find_liked_items.size %></b> restaurants 
+        View my <b><%= current_user.find_liked_items.size %></b> favorite restaurants 
+        <% end %></p>
+        <%= link_to my_friends_pins_path, class: "btn btn-success btn-block " do %>
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        View the favorite restaurants of my <b><%= current_user.follows.count %></b> friends
         <% end %></p>
         <%= link_to my_friends_path, class: "btn btn-success btn-block" do %>
         <span class="glyphicon glyphicon-chevron-right"></span>
-        My <b><%= current_user.follows.count %></b> friends
-        <% end %></p>
-        <%= link_to followers_path, class: "btn btn-success btn-block" do %>
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        My <b><%= current_user.followers.count %></b> followers
+        View my <b><%= current_user.follows.count %></b> friends
         <% end %></p>
         <%= link_to users_path, class: "btn btn-danger btn-block" do %>
         <span class="glyphicon glyphicon-chevron-right"></span>
