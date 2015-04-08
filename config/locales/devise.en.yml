@@ -2,6 +2,9 @@
 
 en:
   devise:
+    callbacks:
+      user:
+        success:"You are now logged in successfully"
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
@@ -58,7 +61,5 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
-  callbacks:
-    user:
-      succes:"You are now logged in successfully"
+    
 
