@@ -15,25 +15,19 @@
         <% end %>
       <% end %>
       <br></br>
-  <div class="col-md-offset-0 col-md-14">
-    <div class="panel panel-default">
-      <div class="panel-heading center">
-         <p><b>Restaurant liked by: </b></p>
-                <% @pin.votes_for.voters.each do |p| %> 
-                  <p><%= link_to image_tag(p.image_file_name), @user %></p>
-                <% end %>  
-      </div>
-    </div>
-  </div>
-    <div class="panel panel-default">
+        <p><strong>Photo:</strong></p>
+         <%= image_tag @pin.image.url(:medium) %><br>   
+      <div class="panel panel-default">
       <div class="panel-body">
-          <p><strong>Street:</strong>
-            <%= @pin.ingredients2 %></p>
+        <h3>Contact details:</h3>
+          <p><strong>Address:</strong>
+            <%= @pin.address %></p>
           <p><strong>Place:</strong>
-            <%= @pin.preparation %></p>
-          <p><strong>Photo:</strong></p>
-        	 <%= image_tag @pin.image.url(:medium) %><br>   
-          <br></br>
+            <%= @pin.place %></p>
+            <p><strong>Telephone number:</strong>
+            <%= @pin.telephone_number %></p>
+            <p><strong>Website:</strong>
+            <%= @pin.website %></p>
                   <% if @pin.user == current_user %>
                      <div class="btn-group.pull-right">
                     <%= link_to edit_pin_path(@pin), class: "btn btn-warning btn-sm" do %>
@@ -47,8 +41,19 @@
                   </div>
          <% end %>
       </div>
-    </div>    
+
   </div>
+    <div class="col-md-offset-0 col-md-14">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+         <p><b>Restaurant liked by: </b></p>
+                <% @pin.votes_for.voters.each do |p| %> 
+                  <p><%= link_to image_tag(p.image_file_name), @user %></p>
+                <% end %>  
+      </div>
+    </div>
+  </div>
+</div>    
      
 
 
