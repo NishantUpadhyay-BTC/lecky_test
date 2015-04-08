@@ -3,6 +3,8 @@
   Back
   <% end %></p>
 <h1><%= @pin.name %></h1>
+      <div class="panel panel-default">
+      <div class="panel-body">
       <% if current_user.liked? @pin %>
         <%= link_to unlike_pin_path(@pin), method: :put, class: "btn btn-danger btn-sm" do %>
         <span class="glyphicon glyphicon-remove"></span>
@@ -15,7 +17,9 @@
         <% end %>
       <% end %>
       <br></br>
-         <%= image_tag @pin.image.url(:medium) %><br>   
+         <%= image_tag @pin.image.url(:medium) %><br>  
+           </div>
+         </div> 
       <div class="panel panel-default">
       <div class="panel-body">
         <h3>Contact details:</h3>
