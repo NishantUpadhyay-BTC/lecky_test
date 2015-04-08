@@ -1,12 +1,13 @@
 <h1>My friends</h1>
    <% if @followings.present? && @followings.size > 0 %>
    <p>View your <b><%= current_user.follows.count %></b> friends. <br>
-   <div id="pins" class="transitions-enabled">
             <% @followings.each do |user| %>
+              <div id="pins" class="transitions-enabled">
               <div class="box panel panel-default" id = "user_<%= user.id %>">
                <%= render :partial => 'users/user', :locals => {:user => user} %>
                     </div> 
             <% end %>
+            </div> 
         <% else %>
             <p> You haven't added any friends yet, add some friends and see their restaurants here. </p>
             <%= link_to users_path, class: "btn btn-danger btn-block" do %>
@@ -14,3 +15,4 @@
             Add friends
             <% end %></p>
         <% end %> 
+

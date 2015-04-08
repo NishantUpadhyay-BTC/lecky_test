@@ -19,7 +19,6 @@ class PinsController < ApplicationController
     @pin.liked_by current_user
     redirect_to :back, notice: 'You have this restaurant to your favorite list.'
     ModelMailer.new_like_notification(@pin).deliver
-
   end
 
   def unlike
