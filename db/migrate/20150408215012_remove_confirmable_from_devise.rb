@@ -6,4 +6,5 @@ class RemoveConfirmableFromDevise < ActiveRecord::Migration
        t.remove :confirmation_sent_at
        t.remove :unconfirmed_email
   	    end
+  	end
 end
