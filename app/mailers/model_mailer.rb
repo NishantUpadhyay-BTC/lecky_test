@@ -1,5 +1,5 @@
 class ModelMailer < ActionMailer::Base
-  default from: "no-reply@email.altijdheerlijk.nl"
+  default from: "alerts@email.dinder.nl"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -17,7 +17,7 @@ class ModelMailer < ActionMailer::Base
     mail to: pin.user.email, subject: "#{@pin.user.name}, your restaurant #{@pin.description} is now liked by others.", bcc: "oliviervanhees@gmail.com"
   end
 
-  def new_follow_notification(user)
+  def new_follower_notification(user)
     @user = user
     mail to: user.email, subject: "#{@user.name}, you are now followd by others.", bcc: "oliviervanhees@gmail.com"
   end

@@ -6,7 +6,7 @@ class FollowsController < ApplicationController
     @user = User.find(params[:id])
     if @user.present?
       current_user.follow!(@user)
-      ModelMailer.new_follow_notification(@user).deliver
+      ModelMailer.new_follower_notification(@user).deliver
     end
   end
 
