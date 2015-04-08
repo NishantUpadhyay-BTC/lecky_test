@@ -1,10 +1,10 @@
 <h1>My friends</h1>
    <% if @followings.present? && @followings.size > 0 %>
-     <%= link_to users_path, class: "btn btn-default btn-block" do %>
-     <span class="glyphicon glyphicon-chevron-right"></span>
-     Add friends
-     <% end %></p>
    <p>View your <b><%= current_user.follows.count %></b> friends. <br>
+    <%= link_to users_path, class: "btn btn-default btn-block" do %>
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    Add friends
+    <% end %></p>
             <% @followings.each do |user| %>
               <div id="pins" class="transitions-enabled">
               <div class="box panel panel-default" id = "user_<%= user.id %>">
@@ -14,6 +14,10 @@
             </div> 
         <% else %>
             <p> You haven't added any friends yet, find your friends or see add people who are following you. </p>
+            <%= link_to users_path, class: "btn btn-default btn-block" do %>
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            Add friends
+            <% end %></p>
         <% end %> 
 
 
