@@ -1,6 +1,5 @@
 <h1>Welcome</h1>
 <p><b><%=current_user.name %></b></p>
-<p><%= link_to image_tag(current_user.image_file_name), @user %></p>
     <div id="pins" class="transitions-enabled">
         <%= link_to my_favorites_path, class: "btn btn-success btn-block" do %>
         <span class="glyphicon glyphicon-chevron-right"></span>
