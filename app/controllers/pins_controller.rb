@@ -4,8 +4,9 @@ class PinsController < ApplicationController
   before_action :correct_user, only: [:destroy]
 
   def index
-    @pins = Pin.all.order("created_at DESC")
+      @pins = Pin.search(params[:search])
   end
+
 
   def my_pins
     @pins = current_user.pins
@@ -72,6 +73,6 @@ class PinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pin_params
-      params.require(:pin).permit(:description, :image, :name, :address, :place, :postal_code, :telephone_number, :website, :emailadress)
+      params.require(:pin).permit(:description, :image, :name, :address, :place, :postal_code, :telephone_number, :website, :emailadress, :location, :latitude, :longitude)
     end
 end
