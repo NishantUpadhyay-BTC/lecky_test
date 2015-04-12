@@ -2,6 +2,10 @@
 
 en:
   devise:
+  callbacks:
+        user:
+          success:"You are now logged in successfully"
+          failure:"Please log in with your Facebook account"
     authentications:
       user:
         success:"You are now logged in successfully"
