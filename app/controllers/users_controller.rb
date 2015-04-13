@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 	end
 
 	def feeds
-		@pins =  Pin.where(user_id: current_user.followings.pluck(:id))
+		@pins =  Pin.where(user_id: current_user.followings.pluck(:id)) 
 	end
 
 end

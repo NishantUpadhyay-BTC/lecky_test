@@ -1,3 +1,16 @@
+GIT
+  remote: git://github.com/elasticsearch/elasticsearch-ruby.git
+  revision: 5857f415889f96bd23d5e74bef48c795b847539e
+  specs:
+    elasticsearch (1.0.8)
+      elasticsearch-api (= 1.0.7)
+      elasticsearch-transport (= 1.0.7)
+    elasticsearch-api (1.0.7)
+      multi_json
+    elasticsearch-transport (1.0.7)
+      faraday
+      multi_json
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -34,10 +47,13 @@ GEM
       uuidtools (~> 2.1)
     bcrypt (3.1.9)
     bcrypt (3.1.9-x86-mingw32)
+    bootstrap-navbar (2.2.3)
+      gem_config (~> 0.3)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
     bootstrap-social-rails (4.8.0)
       railties (>= 3.1)
+    bootstrap_form (2.3.0)
     builder (3.1.4)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -69,6 +85,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
+    gem_config (0.3.1)
     geocoder (1.2.8)
     hashie (3.3.1)
     hike (1.2.3)
@@ -144,6 +161,9 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_bootstrap_navbar (2.0.1)
+      bootstrap-navbar (~> 2.0)
+      rails (>= 3.0.0)
     rails_serve_static_assets (0.0.2)
     rails_stdout_logging (0.0.3)
     railties (4.0.0)
@@ -167,6 +187,10 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    searchkick (0.8.7)
+      activemodel
+      elasticsearch (>= 1)
+      hashie
     shareable (1.1.4)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -340,9 +364,11 @@ DEPENDENCIES
   aws-sdk (~> 1.20.0)
   bootstrap-sass
   bootstrap-social-rails
+  bootstrap_form
   byebug
   coffee-rails (~> 4.0.0)
   devise (~> 3.4.1)
+  elasticsearch-transport!
   font-awesome-rails
   geocoder
   jbuilder (~> 1.2)
@@ -357,9 +383,11 @@ DEPENDENCIES
   pg
   rails (= 4.0.0)
   rails_12factor
+  rails_bootstrap_navbar
   rename
   sass-rails (~> 4.0.0)
   sdoc
+  searchkick
   shareable
   simple_form
   socialization

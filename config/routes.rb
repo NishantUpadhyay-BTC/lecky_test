@@ -6,6 +6,10 @@
     end
   end
 
+  resources :pins do
+  collection { post :import }
+  end
+
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   match '/users/:id/follow' => 'follows#create', :as => :user_follow, :via => [:post]

@@ -1,10 +1,41 @@
 <%= link_to :back, class: "btn btn-default" do %>
   <span class="glyphicon glyphicon-chevron-left"></span>
-  Back
+    Back
   <% end %></p>
-<h1><%=@user.name %></h1> 
-<%= link_to "Remove friend", user_unfollow_path(@user), :method => :delete, :class => "btn btn-sm btn-danger", :remote => true %>   
-  <br></br><p>View the favorite list of restaurants of <b><%=@user.name %></b>.
+
+
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h2>Userprofile of <%=@user.name %></h2> 
+    <p><%= link_to image_tag(@user.image_file_name), @user %></p>
+  </div>
+</div> 
+
+
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= link_to "Remove friend", user_unfollow_path(@user), :method => :delete, :class => "btn btn-sm btn-danger", :remote => true %>   
+  </div>
+</div> 
+
+<ul class="list-group">
+  <li class="list-group-item">
+    <span class="badge"><%= current_user.find_liked_items.size %></span>
+   Favorite restaurants
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= current_user.pins.count %></span>
+    Restaurants added
+  </li>
+  <li class="list-group-item">
+    <span class="badge"><%= current_user.follows.count %></span>
+    Friends of this user
+  </li>
+</ul>
+
+<p>View the favorite list of restaurants of <b><%=@user.name %></b>.
               <div id="pins" class="transitions-enabled">
                 <% @user.find_liked_items.each do |pin| %>
                 <div class="box panel panel-default">

@@ -2,8 +2,7 @@
   <span class="glyphicon glyphicon-chevron-left"></span>
   Back
   <% end %></p>
-<h1><%= @pin.name %></h1>
-
+<h1><%= Restaurant @pin.name %></h1>
       <div class="panel panel-default">
       <div class="panel-body">
       <% if current_user.liked? @pin %>
@@ -29,7 +28,7 @@
           <%= @pin.address %></p>
         <p><strong>Place:</strong>
           <%= @pin.place %></p>
-          <p><strong>Location:</strong>
+          <p><strong>Location:</strong> 
             <%= @pin.location %></p>
             <p><strong>Longitude:</strong>
               <%= @pin.longitude %></p>
@@ -38,6 +37,8 @@
         <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@pin.latitude}%2C#{@pin.longitude}" %>
           </div>
         </div>
+
+        <div class="fb-comments" data-href="http://dinder-app.herokuapp.com/" data-colorscheme="light"></div>
 
     <div class="panel panel-default">
       <div class="panel-body">

@@ -43,7 +43,11 @@ gem 'koala', '~> 1.11.1'
 gem 'font-awesome-rails'
 gem 'bootstrap-social-rails'
 gem 'simple_form'
+gem 'bootstrap_form'
 gem 'geocoder'
+gem 'elasticsearch-transport', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
+gem "searchkick"
+gem 'rails_bootstrap_navbar'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do

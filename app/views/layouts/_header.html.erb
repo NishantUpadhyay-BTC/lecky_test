@@ -18,7 +18,12 @@
         <li><%= link_to "My favorite restaurants", my_favorites_path %></li> 
         <li><%= link_to "My friends favorite restaurants", my_friends_pins_path %></li>
         <li><%= link_to "My friends", my_friends_path %></li>
-       <li><%= link_to 'Find restaurant', pins_path %></li>
+        <form class="navbar-form navbar-left" role="search">
+           <div class="form-group">
+             <input type="text" class="form-control" placeholder="Search for restaurants">
+           </div>
+           <button type="submit" class="btn btn-success">Seach</button>
+        </form>
        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li> 
       </ul>
     </div><!-- /.navbar-collapse -->
