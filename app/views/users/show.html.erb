@@ -23,18 +23,19 @@
 <ul class="list-group">
   <li class="list-group-item">
     <span class="badge"><%= @user.find_liked_items.size %></span>
-   Favorite restaurants of <b><%=@user.name %></b>
+   <b>Favorite restaurants of <%=@user.name %></b>
                    <% @user.find_liked_items.each do |pin| %>
-                          <p><b>Restaurant:</b> <%= link_to pin.name, pin_path(pin) %></p>
+                           <li class="list-group-item">
+                            Restaurant: <%= link_to pin.name, pin_path(pin) %>
+                            </li>
                     <% end %>
   </li>
   <li class="list-group-item">
     <span class="badge"><%= @user.pins.count %></span>
-    Restaurants added
-  </li>
+    <b>Restaurants added by <%=@user.name %></b>
   <li class="list-group-item">
     <span class="badge"><%= @user.follows.count %></span>
-    Friends of this user
+    <b>Friends of <%=@user.name %></b>
   </li>
 </ul>
 
