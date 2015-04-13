@@ -22,15 +22,15 @@
 
 <ul class="list-group">
   <li class="list-group-item">
-    <span class="badge"><%= current_user.find_liked_items.size %></span>
+    <span class="badge"><%= @user.find_liked_items.size %></span>
    Favorite restaurants
   </li>
   <li class="list-group-item">
-    <span class="badge"><%= current_user.pins.count %></span>
+    <span class="badge"><%= @user.pins.count %></span>
     Restaurants added
   </li>
   <li class="list-group-item">
-    <span class="badge"><%= current_user.follows.count %></span>
+    <span class="badge"><%= @user.follows.count %></span>
     Friends of this user
   </li>
 </ul>
