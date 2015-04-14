@@ -10,16 +10,10 @@
   </div>
 </div> 
 
-<div class="panel panel-default">
-  <div class="panel-body">
-    <%= link_to "Remove friend", user_unfollow_path(@user), :method => :delete, :class => "btn btn-sm btn-danger", :remote => true %>   
-  </div>
-</div> 
-
 <ul class="list-group">
   <li class="list-group-item">
     <span class="badge"><%= @user.find_liked_items.size %></span>
-      <b>Favorite restaurants of <%=@user.name %></b>
+      <b>Favorite restaurants:</b>
           <% @user.find_liked_items.each do |pin| %>
                <li class="list-group-item">
                <%= image_tag pin.image.url(:thumb) %>
@@ -27,9 +21,10 @@
                 </li>
           <% end %>
   </li>
+  <br></br>
   <li class="list-group-item">
     <span class="badge"><%= @user.follows.count %></span>
-      <b>Friends of <%=@user.name %></b>
+      <b>Friends:</b>
       <% @user.follows.each do |pin| %>
            <li class="list-group-item">
            <%= link_to image_tag(@user.image_file_name), @user %>
@@ -38,4 +33,16 @@
       <% end %>
   </li>
 </ul>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <% if current_user && current_user != @user %>
+      <% if current_user.following?(@user) %>
+        <%= link_to "Remove friend", user_unfollow_path(@user), :method => :delete, :class => "btn btn-sm btn-danger", :remote => true %>
+      <% else %>
+        <%= link_to "Add friend", user_follow_path(user), :method => :post, :class => "btn btn-sm btn-success", :remote => true %>
+      <% end %>
+    <% end %>
+  </div>
+</div> 
 
