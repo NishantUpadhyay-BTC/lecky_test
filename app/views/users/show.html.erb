@@ -22,7 +22,7 @@
       <b>Favorite restaurants of <%=@user.name %></b>
           <% @user.find_liked_items.each do |pin| %>
                <li class="list-group-item">
-               <%= image_tag pin.image.url(:small) %>
+               <%= image_tag pin.image.url(:thumb) %>
                <%= link_to pin.name, pin_path(pin) %>
                 </li>
           <% end %>
@@ -32,8 +32,8 @@
       <b>Friends of <%=@user.name %></b>
       <% @user.follows.each do |pin| %>
            <li class="list-group-item">
-           <%= image_tag @user.image.url(:small) %>
            <%= link_to image_tag(@user.image_file_name), @user %>
+           <%= link_to @user.name, user_path(@user) %>
             </li>
       <% end %>
   </li>
