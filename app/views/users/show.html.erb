@@ -3,16 +3,12 @@
     Back
   <% end %></p>
 
-
-
 <div class="panel panel-default">
   <div class="panel-body">
     <h2>Profile of <%=@user.name %></h2> 
     <p><%= link_to image_tag(@user.image_file_name), @user %></p>
   </div>
 </div> 
-
-
 
 <div class="panel panel-default">
   <div class="panel-body">
@@ -23,19 +19,23 @@
 <ul class="list-group">
   <li class="list-group-item">
     <span class="badge"><%= @user.find_liked_items.size %></span>
-   <b>Favorite restaurants of <%=@user.name %></b>
-                   <% @user.find_liked_items.each do |pin| %>
-                           <li class="list-group-item">
-                            Restaurant: <%= link_to pin.name, pin_path(pin) %>
-                            </li>
-                    <% end %>
+      <b>Favorite restaurants of <%=@user.name %></b>
+          <% @user.find_liked_items.each do |pin| %>
+               <li class="list-group-item">
+               <%= image_tag pin.image.url(:medium) %>
+               <%= link_to pin.name, pin_path(pin) %>
+                </li>
+          <% end %>
   </li>
   <li class="list-group-item">
-    <span class="badge"><%= @user.pins.count %></span>
-    <b>Restaurants added by <%=@user.name %></b>
-  <li class="list-group-item">
     <span class="badge"><%= @user.follows.count %></span>
-    <b>Friends of <%=@user.name %></b>
+      <b>Friends of <%=@user.name %></b>
+      <% @user.follows.each do |pin| %>
+           <li class="list-group-item">
+           <%= image_tag @user.image.url(:medium) %>
+           <%= link_to @user.name, user_path(@user) %>
+            </li>
+      <% end %>
   </li>
 </ul>
 
