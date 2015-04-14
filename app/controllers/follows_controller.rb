@@ -6,7 +6,6 @@ class FollowsController < ApplicationController
     @user = User.find(params[:id])
     if @user.present?
       current_user.follow!(@user)
-
     end
   end
 
