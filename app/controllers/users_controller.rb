@@ -13,6 +13,10 @@ class UsersController < ApplicationController
 	  @user = User.all.order("updated_at DESC")
 	end
 
+	def my_profile
+	  @user = current_user
+	end
+
 	def my_friends
 		@followings = current_user.followings
 	end

@@ -1,25 +1,41 @@
-<%= link_to :back, class: "btn btn-default" do %>
+<%= link_to :back, class: "btn btn-info" do %>
   <span class="glyphicon glyphicon-chevron-left"></span>
   Back
-  <% end %></p>
-<h1>Restaurant <%= @pin.name %></h1>
-      <div class="panel panel-default">
-      <div class="panel-body">
-      <% if current_user.liked? @pin %>
-        <%= link_to unlike_pin_path(@pin), method: :put, class: "btn btn-danger btn-sm" do %>
+  <% end %>
+   <% if current_user.liked? @pin %>
+        <%= link_to unlike_pin_path(@pin), method: :put, class: "btn btn-danger" do %>
         <span class="glyphicon glyphicon-remove"></span>
         Unsave restaurant
         <% end %>
       <% else %>
-        <%= link_to like_pin_path(@pin), method: :put, class: "btn btn-success btn-sm" do %>
+        <%= link_to like_pin_path(@pin), method: :put, class: "btn btn-success" do %>
         <span class="glyphicon glyphicon-heart"></span>
         Save restaurant
         <% end %>
-      <% end %>
+      <% end %>    
       <br></br>
-         <%= image_tag @pin.image.url(:medium) %><br>  
-           </div>
-         </div> 
+
+
+
+  <div class="col-md-offset-0 col-md-14">
+  <div class="panel panel-default">
+    <div class="panel-body">
+        <h1>  <%= @pin.name %></h1>
+        <%= image_tag @pin.image.url(:medium) %><br>  
+          </div>
+        </div> 
+
+              <div class="panel panel-default">
+              <div class="panel-body">
+               <h3>Restaurant liked by: </h3>
+                      <% @pin.votes_for.voters.each do |p| %> 
+                        <p><%= link_to image_tag(p.image_file_name), @user %></p>
+                      <% end %>  
+            </div>
+          </div>
+        </div>  
+
+        <div class="fb-comments" data-href="http://dinder-app.herokuapp.com/" data-colorscheme="light"></div>
 
       <div class="panel panel-default">
       <div class="panel-body">
@@ -28,17 +44,11 @@
           <%= @pin.address %></p>
         <p><strong>Place:</strong>
           <%= @pin.place %></p>
-          <p><strong>Location:</strong> 
-            <%= @pin.location %></p>
-            <p><strong>Longitude:</strong>
-              <%= @pin.longitude %></p>
-              <p><strong>Latitude:</strong>
-                <%= @pin.latitude %></p>
         <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@pin.latitude}%2C#{@pin.longitude}" %>
           </div>
         </div>
 
-        <div class="fb-comments" data-href="http://dinder-app.herokuapp.com/" data-colorscheme="light"></div>
+    
 
     <div class="panel panel-default">
       <div class="panel-body">
@@ -50,17 +60,7 @@
       </div>
     </div>
 
-
-    <div class="col-md-offset-0 col-md-14">
-    <div class="panel panel-default">
-      <div class="panel-heading center">
-         <h3>Restaurant liked by: </h3>
-                <% @pin.votes_for.voters.each do |p| %> 
-                  <p><%= link_to image_tag(p.image_file_name), @user %></p>
-                <% end %>  
-      </div>
-    </div>
-  </div>
+     
   
 
          <div class="panel panel-default">
