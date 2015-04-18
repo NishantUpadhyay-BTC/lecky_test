@@ -13,7 +13,7 @@
   <ul class="list-group">
     <li class="list-group-item">
       <span class="badge"><%= @user.find_liked_items.size %></span>
-        <b>Restaurants:</b>
+        <b>Favorite restaurants:</b>
             <% @user.find_liked_items.each do |pin| %>
                  <li class="list-group-item">
                  <%= image_tag pin.image.url(:thumb) %>
