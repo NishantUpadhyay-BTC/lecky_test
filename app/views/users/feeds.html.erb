@@ -1,11 +1,19 @@
 <h1>My friends favorites</h1>
+<%= link_to users_path, class: "btn btn-default btn-block" do %>
+<span class="glyphicon glyphicon-chevron-right"></span>
+Add friends
+<% end %></p>
 <% if @pins.present? && @pins.to_a.size > 0 %>
-<p>View the favorite restaurants of your <b><%= current_user.follows.count%></b> friends.</p> 
-<%= render 'pins/show_pin_details' %>  
+
+
+<ul class="list-group">
+  <li class="list-group-item">
+    <span class="badge"><%= current_user.follows.count%></span>
+      <b>Number of restaurants:</b> 
+       <%= render 'pins/show_pin_details' %>      
+  </li>
+
 <% else %>
 	<p> You haven't added any friends yet or your friends haven't added any restaurants yet. Add some (more) friends to see their favorite restaurants. </p>
-	<%= link_to users_path, class: "btn btn-danger btn-block" do %>
-	<span class="glyphicon glyphicon-chevron-right"></span>
-	Add friends
-	<% end %></p>
+	
 <% end %>

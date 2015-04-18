@@ -2,7 +2,7 @@
 <ul class="list-group">
   <li class="list-group-item">
     <span class="badge"><%= @user.count %></span>
-      <b>Users:</b>
+      <b>Number of users:</b>
            <% @user.each do |user| %>
                <li class="list-group-item">
                <%= render :partial => 'users/user', :locals => {:user => user} %>

@@ -1,4 +1,8 @@
 <h1>My friends</h1>
+<%= link_to users_path, class: "btn btn-default btn-block" do %>
+<span class="glyphicon glyphicon-chevron-right"></span>
+Add friends
+<% end %></p>
    <% if @followings.present? && @followings.size > 0 %>
             <ul class="list-group">
               <li class="list-group-item">
@@ -16,10 +20,7 @@
             <p> You haven't added any friends yet, find your friends or see add people who are following you. </p>
         <% end %> 
 
-        <%= link_to users_path, class: "btn btn-success btn-block" do %>
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        Add friends
-        <% end %></p>
+      
 
  
 
