@@ -24,7 +24,7 @@
   get "my_favorites" => "pins#my_favorites"
   get "my_friends" => "users#my_friends"
   get "followers" => "users#followers"
-  
+  get "search_pins" => "pins#index"
   get '/feeds' => 'users#feeds', :as => :feeds
   
   

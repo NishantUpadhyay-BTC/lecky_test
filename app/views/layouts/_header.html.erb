@@ -14,17 +14,17 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "My profile", my_profile_path %></li> 
-        <li><%= link_to "My restaurants", my_favorites_path %></li> 
-        <li><%= link_to "My friends favorites", feeds_path %></li> 
+        <li><%= link_to "My profile", my_profile_path %></li>
+        <li><%= link_to "My restaurants", my_favorites_path %></li>
+        <li><%= link_to "My friends favorites", feeds_path %></li>
         <li><%= link_to "My friends", my_friends_path %></li>
-        <form class="navbar-form navbar-left" role="search">
-           <div class="form-group">
-             <input type="text" class="form-control" placeholder="Search for restaurants">
-           </div>
-           <button type="submit" class="btn btn-success">Seach</button>
-        </form>
-       <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li> 
+        <%= form_tag(search_pins_path, method: :get, class: "navbar-form navbar-left") do %>
+          <div class="form-group">
+            <%= text_field_tag 'search', params[:search], class: "form-control", placeholder: "Search for restaurants", autofocus: true %>
+          </div>
+          <%= submit_tag "Search", class: "btn btn-success" %>
+        <% end %>
+       <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
