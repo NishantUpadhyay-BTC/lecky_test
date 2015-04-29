@@ -13,21 +13,6 @@ Add restaurant by yourself
        <%= render 'pins/show_pin_details' %>      
   </li>
 
-
-
-
-
-<h2>Import restaurants</h2>
-<%= form_tag import_pins_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
-
-<%= bootstrap_form_tag(url: pins_path, method: "get") do |f| %>
-    <%= f.search_field :search_for_your_favorite_restaurant, value: params[:search], placeholder: "Fill in the name of your favorite restaurant" %>
-    <%= f.submit "Search", :name => nil, class: "btn btn-success" %>
-<% end %>
-
 </ul>
 
 
