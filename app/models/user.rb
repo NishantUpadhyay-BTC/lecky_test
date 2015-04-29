@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   acts_as_voter
   acts_as_votable
 
+  after_create :send_welcome_email
+
 	def self.from_omniauth(auth)
       where(provider2: auth.provider, uid2: auth.uid).first_or_create do |user|
         user.provider2 = auth.provider
@@ -35,4 +37,9 @@ class User < ActiveRecord::Base
   end 
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/default.jpg"
+
+  private
+    def send_welcome_email
+      ModelMailer.new_user_account_notification(self).deliver
+    end
 end
