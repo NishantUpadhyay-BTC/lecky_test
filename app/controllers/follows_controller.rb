@@ -6,6 +6,12 @@ class FollowsController < ApplicationController
     @user = User.find(params[:id])
     if @user.present?
       current_user.follow!(@user)
+      begin
+        ModelMailer.new_follower_notification(@user).deliver
+      rescue StandardError => e
+        logger.error 'Unable to send new follower notification'
+        logger.error "#{e.backtrace.first}: #{e.message} (#{e.class})"
+      end
     end
   end
 
