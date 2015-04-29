@@ -1,12 +1,6 @@
-<p>Hi <%= user.name %>,</p>
+<p>Hi <%= @user.name %>,</p>
 
-<p>You are now followed by others </p>
-
-<% @pin.votes_for.voters.each do |p| %>
-
-<li><%= p.name %></li>
-
-<% end %>
+<p>You are now followed by others. </p>
 
 <p>View your friends <%= link_to "here", my_friends_url(@user) %>.</p>
 
