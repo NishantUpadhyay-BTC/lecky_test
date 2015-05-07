@@ -11,7 +11,6 @@
       <b>Restaurants:</b>
           <% @user.find_liked_items.each do |pin| %>
                <li class="list-group-item">
-               <%= image_tag pin.image.url(:thumb) %>
                <%= link_to pin.name, pin_path(pin) %>
                 </li>
           <% end %>

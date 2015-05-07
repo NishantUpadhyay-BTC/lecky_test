@@ -1,4 +1,4 @@
-<%= link_to :back, class: "btn btn-info" do %>
+<%= link_to :back, class: "btn btn-default" do %>
 <span class="glyphicon glyphicon-chevron-left"></span>
 Back
 <% end %>
@@ -16,30 +16,6 @@ Back
 <br></br>
 
 <div class="col-xs-12">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h1><%= @pin.name %></h1>
-      <%= image_tag 'placekitten.jpg', class: "img-responsive" %>
-      <!--<%= image_tag @pin.image.url(:medium) %>-->
-      <br>
-    </div>
-  </div>
-
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h3>Restaurant liked by: </h3>
-      <% @pin.votes_for.voters.each do |p| %>
-        <% if p.present? %>
-          <p><%= link_to image_tag(p.image_file_name), @user %></p>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<div class="fb-comments" data-href="http://dinder-app.herokuapp.com/" data-colorscheme="light">
-</div>
-<div class="fb-share-button" data-href="https://www.facebook.com/pages/Dinder/817718288265084" data-layout="button"></div>
 <div class="panel panel-default">
   <div class="panel-body">
     <h3>Location:</h3>
@@ -53,15 +29,27 @@ Back
   </div>
 </div>
 
-<div class="panel panel-default">
-  <div class="panel-body">
-    <h3>Contact details:</h3>
-    <p><strong>Telephone number:</strong>
-    <%= @pin.telephone_number %></p>
-    <p><strong>Website:</strong>
-    <%=  link_to @pin.website, "http://#{@pin.website}" %></p>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h3>Restaurant liked by: </h3>
+      <% @pin.votes_for.voters.each do |p| %>
+        <% if p.present? %>
+          <p><%= link_to image_tag(p.image_file_name), @user %></p>
+        <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h3>Contact details:</h3>
+      <p><strong>Telephone number:</strong>
+      <%= @pin.telephone_number %></p>
+      <p><strong>Website:</strong>
+      <%=  link_to @pin.website, "http://#{@pin.website}" %></p>
+    </div>
+  </div>
+
 
 <div class="panel panel-default">
   <div class="panel-body">

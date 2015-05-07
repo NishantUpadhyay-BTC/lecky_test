@@ -3,12 +3,17 @@
               <div class="btn-group.pull-right">
                  <% @pins.each do |pin| %>
                  <li class="list-group-item">
-                   <p><b>Restaurant:</b><%= link_to pin.name, pin_path(pin) %></p>
-                      <br><%= link_to image_tag(pin.image.url(:thumb)), pin %></br>
-                      <br></br>
-                      <p><b>Address:</b><%= pin.address %></p>
-                    
-                    <p><%= link_to pin_path(pin) , class: "btn btn-info btn-sm" do %>
+                   <p><b>Restaurant:</b> <%= link_to pin.name, pin_path(pin) %></p>
+                   <p><b>Address:</b> <%= pin.address %></p>
+                   <p><b>Place:</b> <%= pin.place %></p>
+                   <p><b>Restaurant liked by: </b>
+                         <% pin.votes_for.voters.each do |p| %>
+                           <% if p.present? %>
+                             <p><%= link_to p.name, @user %></p>
+                           <% end %>
+                         <% end %>
+
+                   <p><%= link_to pin_path(pin) , class: "btn btn-info btn-sm" do %>
                     <span class="glyphicon glyphicon-fullscreen"></span>
                     View 
                     <% end %>
