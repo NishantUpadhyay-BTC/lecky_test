@@ -4,10 +4,10 @@
                  <% @pins.each do |pin| %>
                  <li class="list-group-item">
                    <p><b>Restaurant:</b> <%= link_to pin.name, pin_path(pin) %></p>
-                   <p><b>Restaurant liked by: </b>
+                   <p><b>Liked by: </b>
                          <% pin.votes_for.voters.each do |p| %>
                            <% if p.present? %>
-                            <p><%= link_to image_tag(p.image_file_name), @user %></p>
+                            <%= link_to image_tag(p.image_file_name), @user %>
                            <% end %>
                          <% end %>
 
