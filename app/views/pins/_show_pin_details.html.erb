@@ -2,15 +2,16 @@
           <div class="actions">
               <div class="btn-group.pull-right">
                  <% @pins.each do |pin| %>
-                 <li class="list-group-item">
                    <p><b>Restaurant:</b> <%= link_to pin.name, pin_path(pin) %></p>
                    <p><b>Liked by: </b><br></br>
+
                          <% pin.votes_for.voters.each do |p| %>
+                         
                            <% if p.present? %>
                             <%= link_to image_tag(p.image_file_name), @user %>
                            <% end %>
                          <% end %>
-
+    
                    <p><%= link_to pin_path(pin) , class: "btn btn-info btn-sm" do %>
                     <span class="glyphicon glyphicon-fullscreen"></span>
                     View location
@@ -25,11 +26,9 @@
                       <span class="glyphicon glyphicon-heart"></span>
                       Save 
                       <% end %>
+                       </div>    
                     <% end %>
-                    </li>
-                  <% end %>
-
-              </div>
+               <% end %>
         </div>
 </div>
      

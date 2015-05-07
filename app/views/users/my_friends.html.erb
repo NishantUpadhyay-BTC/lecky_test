@@ -1,11 +1,8 @@
 <h1>My friends</h1>
-<%= link_to users_path, class: "btn btn-default btn-block" do %>
-<span class="glyphicon glyphicon-chevron-right"></span>
-Add friends to your list
-<% end %></p>
+
    <% if @followings.present? && @followings.size > 0 %>
             <ul class="list-group">
-              <li class="list-group-item">
+              <li class="list-group-item list-group-item-heading list-group-item-default">
                 <span class="badge"><%= current_user.follows.count %></span>
                 <b>Number of friends:</b>
                 <% @followings.each do |user| %>
@@ -19,6 +16,11 @@ Add friends to your list
         <% else %>
             <p> You haven't added any friends yet, find your friends or see add people who are following you. </p>
         <% end %> 
+
+        <%= link_to users_path, class: "btn btn-default btn-block" do %>
+<span class="glyphicon glyphicon-chevron-right"></span>
+Add friends to your list
+<% end %></p>
 
       
 

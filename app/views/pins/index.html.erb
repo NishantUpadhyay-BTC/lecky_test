@@ -1,18 +1,17 @@
-<h1>Search for restaurants</h1>
+<h1>Search for restaurants (<%= @pins.count %>)</h1>
+
+	    	
+<%= form_tag(search_pins_path, method: :get, class: "navbar-form navbar-left") do %>
+          <div class="form-group">
+            <%= text_field_tag 'search', params[:search], class: "form-control", placeholder: "Search for restaurants", autofocus: true %>
+          </div>
+          <%= submit_tag "Search", class: "btn btn-success" %>
+        <% end %>
+<br></br>
+<br></br>
 
 <%= link_to new_pin_path, class: "btn btn-default btn-block" do %>
 <span class="glyphicon glyphicon-chevron-right"></span>
 Add restaurant by yourself
 <% end %></p>
-
-
-<ul class="list-group">
-  <li class="list-group-item">
-    <span class="badge"><%= @pins.count %></span>
-      <b>Number of restaurants:</b> 
-       <%= render 'pins/show_pin_details' %>      
-  </li>
-
-</ul>
-
 

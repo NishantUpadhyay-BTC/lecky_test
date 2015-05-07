@@ -1,27 +1,27 @@
 <h1>My restaurants</h1>
-<%= link_to pins_path, class: "btn btn-default btn-block" do %>
-	<span class="glyphicon glyphicon-chevron-right"></span>
-	Add restaurants to your list
-<% end %></p>
+
 <% if current_user.find_liked_items.size > 0 %>
 
 <ul class="list-group">
-  <li class="list-group-item">
-  	<span class="badge"><%= current_user.find_liked_items.size %></span>
-  	<b>Number of restaurants:</b>
-    
-       <%= render 'pins/show_pin_details' %>  
-    </li>
+	 <li class="list-group-item list-group-item-heading list-group-item-disabled">
+	  	<span class="badge"><%= current_user.find_liked_items.size %></span>
+	  	<b>Number of restaurants:</b>
+	    	<li class="list-group-item">
+	       		<%= render 'pins/show_pin_details' %>  
+	    	</li>
+	</li>
 </ul>
-
-
-
-
-
 
 <% else %>
 	<p> You haven't added any restaurants yet, start now with addinng some restaurants to your favorite list here. </p>
 <% end %>
+
+<%= link_to pins_path, class: "btn btn-default btn-block" do %>
+	<span class="glyphicon glyphicon-chevron-right"></span>
+	Add restaurants to your list
+<% end %></p>
+
+
 
 
 
