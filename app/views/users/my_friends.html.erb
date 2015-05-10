@@ -1,10 +1,7 @@
-<h1>My friends</h1>
+<h1>My friends (<%= current_user.follows.count %>)</h1>
 
    <% if @followings.present? && @followings.size > 0 %>
             <ul class="list-group">
-              <li class="list-group-item list-group-item-heading list-group-item-default">
-                <span class="badge"><%= current_user.follows.count %></span>
-                <b>Number of friends:</b>
                 <% @followings.each do |user| %>
                     <li class="list-group-item">
                     <%= render :partial => 'users/user', :locals => {:user => user} %>
