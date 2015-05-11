@@ -7,7 +7,7 @@ class FollowsController < ApplicationController
     if @user.present?
       current_user.follow!(@user)
       begin
-        ModelMailer.new_follower_notification(@user).deliver
+        ModelMailer.new_follower_notification(@user, current_user).deliver
         respond_to do |format|
           format.js
         end
