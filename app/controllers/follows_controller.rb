@@ -8,6 +8,9 @@ class FollowsController < ApplicationController
       current_user.follow!(@user)
       begin
         ModelMailer.new_follower_notification(@user).deliver
+        respond_to do |format|
+          format.js
+        end
       rescue StandardError => e
         logger.error 'Unable to send new follower notification'
         logger.error "#{e.backtrace.first}: #{e.message} (#{e.class})"
@@ -23,8 +26,6 @@ class FollowsController < ApplicationController
         follow.destroy
       end
     end
-    respond_to do |format|
-      format.js { render :file => "/follows/create", :handlers => [:erb] }
-    end
+    render 'create'
   end	
 end
