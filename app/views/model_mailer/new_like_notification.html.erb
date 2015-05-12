@@ -1,7 +1,5 @@
 <p>Hi <%= @follower.name %>,</p>
 
-<p>Your restaurant <b><%= @pin.description %></b> is now liked by: <%= @current_user.name %></p>
-
-<p>View or edit your restaurant <%= link_to "here", pin_url(@pin) %>.</p>
+<p>Your friend <%= @current_user.name %> likes the <%= link_to @pin.name, pin_url(@pin) %> restaurant.</p>
 
 <p>Dinder</p>

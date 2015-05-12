@@ -15,7 +15,7 @@ class ModelMailer < ActionMailer::Base
     @pin = pin
     @follower = follower
     @current_user = current_user
-    mail to: @follower.email, subject: "#{@follower.name}, your restaurant #{@pin.description} is now liked by others.", bcc: "oliviervanhees@gmail.com"
+    mail to: @follower.email, subject: "Your friend #{@follower.name}, likes the #{@pin.name}.", bcc: "oliviervanhees@gmail.com"
   end
 
   def new_follower_notification(user, current_user)
