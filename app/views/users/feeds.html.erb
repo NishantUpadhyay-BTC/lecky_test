@@ -1,12 +1,12 @@
 <h1>Nearby Restaurant</h1>
 <div class="row">
   <div class="col-xs-12">
-    <div class="col-xs-6">
-      <%= form_tag(search_by_location_path, method: :get) do %>
-        <%= text_field_tag 'search_by_location', params[:search_by_location], class: "form-control", placeholder: "Search by location", autofocus: true %>
-      <% end %>
-    </div>
-    <%= submit_tag "Search", class: "btn btn-success" %>
+    <%= form_tag(search_by_location_path, method: :get) do %>
+      <div class="col-xs-6">
+          <%= text_field_tag 'search_by_location', params[:search_by_location], class: "form-control", placeholder: "Search by location", autofocus: true %>
+      </div>
+      <%= submit_tag "Search", class: "btn btn-success" %>
+    <% end %>
   </div>
 </div>
 
