@@ -1,18 +1,3 @@
-<h1>Nearby Restaurant</h1>
-<div class="row">
-  <div class="col-xs-12">
-    <%= form_tag(search_by_location_path, method: :get) do %>
-      <div class="col-xs-6">
-          <%= text_field_tag 'search_by_location', params[:search_by_location], class: "form-control", placeholder: "Search by location", autofocus: true %>
-      </div>
-      <%= submit_tag "Search", class: "btn btn-success" %>
-    <% end %>
-  </div>
-</div>
-
-<br/>
-<%= render 'nearby_restaurants' %> 
-
 <h1>My suggestions (<%= current_user.follows.count%>)</h1>
 
 <% if @pins.present? && @pins.to_a.size > 0 %>
@@ -34,12 +19,3 @@ Add friends to your list
 	<span class="glyphicon glyphicon-chevron-right"></span>
 	Add restaurants to your list
 <% end %></p>
-
-<script type="text/javascript">
-var input = document.getElementById('search_by_location');
-var options = {
-    types: [],
-    componentRestrictions: {country: 'nl'}
-};
-var autocomplete = new google.maps.places.Autocomplete(input, options);
-</script>
