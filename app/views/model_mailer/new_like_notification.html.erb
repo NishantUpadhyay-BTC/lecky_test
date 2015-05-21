@@ -1,13 +1,5 @@
-<p>Hi <%= @pin.user.name %>,</p>
+<p>Hi <%= @follower.name %>,</p>
 
-<p>Your restaurant <b><%= @pin.description %></b> is now liked by:</p>
-
-<% @pin.votes_for.voters.each do |p| %>
-
-<li><%= p.name %></li>
-
-<% end %>
-
-<p>View or edit your restaurant <%= link_to "here", pin_url(@pin) %>.</p>
+<p>Your friend <%= @current_user.name %> likes the <%= link_to @pin.name, pin_url(@pin) %> restaurant.</p>
 
 <p>Dinder</p>

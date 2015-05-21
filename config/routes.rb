@@ -26,6 +26,7 @@
   get "my_friends" => "users#my_friends"
   get "followers" => "users#followers"
   get "search_pins" => "pins#index"
+  get "search_by_location" => "users#feeds"
   get '/feeds' => 'users#feeds', :as => :feeds
   
   

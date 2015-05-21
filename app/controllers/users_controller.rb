@@ -30,6 +30,12 @@ class UsersController < ApplicationController
     current_user.follows.each do |follower|
       current_users_follower_pin_ids << follower.followable.votes.pluck(:votable_id)
     end
+
+    if params[:search_by_location]
+      @latitude_longitude = Geocoder.coordinates(params[:search_by_location])
+      @nearby_restaurants = Pin.near(@latitude_longitude, 10)
+    end
+
     @pins = Pin.find(current_users_follower_pin_ids.flatten.uniq)
 	end
 

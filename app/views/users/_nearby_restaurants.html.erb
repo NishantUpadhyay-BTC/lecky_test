@@ -1,0 +1,11 @@
+<% if @nearby_restaurants.present? %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="btn-group.pull-right">
+      <% @nearby_restaurants.each do |restaurant| %>
+        <p><%= restaurant.address %> (<%= find_nearby_distance(@latitude_longitude, restaurant) %> miles)</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>
