@@ -51,8 +51,10 @@ gem 'rails_bootstrap_navbar'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
-     gem 'sqlite3'
+    gem 'sqlite3'
      gem 'byebug'
+     gem 'quiet_assets'
+     gem 'pry-rails'
 end
 
 group :production do
