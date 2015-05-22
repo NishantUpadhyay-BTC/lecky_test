@@ -1,5 +1,5 @@
 class ModelMailer < ActionMailer::Base
-  default from: "alerts@email.dinder.nl"
+  default from: "demo4582@gmail.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -29,5 +29,8 @@ class ModelMailer < ActionMailer::Base
     mail to: @user.email, subject: "Welcome!!!.", bcc: "oliviervanhees@gmail.com"
   end
 
+  def test_mail
+    mail to: "nishantupadhyay26@gmail.com", subject: "Welcome!!!."
+  end
 end
 

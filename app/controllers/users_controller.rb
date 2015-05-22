@@ -25,6 +25,10 @@ class UsersController < ApplicationController
 		@followers = current_user.followers.collect(&:user)
 	end
 
+	def test
+		ModelMailer.test_mail.deliver
+		redirect_to root_path
+	end
 	def feeds
     current_users_follower_pin_ids = []
     current_user.follows.each do |follower|

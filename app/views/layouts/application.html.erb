@@ -47,7 +47,9 @@
 <div class="container">
 
 
-	
+	<%= form_tag test_path do %>
+  <%= submit_tag 'TEST mailgun' %> 
+<% end %>
 <%= yield %>
 
 
