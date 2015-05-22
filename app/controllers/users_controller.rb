@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	 before_action :authenticate_user!, except: [:index, :show]
+	 before_action :authenticate_user!, except: [:index, :show, :test]
 
 	def show
 		@user = User.find(params[:id])
